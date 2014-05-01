@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestWebDriver {
 	//delay for 5 minutes
-	public long delay = 300000;
+	public long delay = 1000;
 	
 	public static void main(String[] args) {
 		//creating the object
@@ -45,12 +45,13 @@ public class TestWebDriver {
 		//compute the price from google's website
 		double googlePrice = Double.parseDouble(element.getText());
 		System.out.println("google Price is " +googlePrice);
-		driver.get("http://finance.yahoo.com/");
+		//driver.get("http://finance.yahoo.com/");
+		driver.navigate().to("http://finance.yahoo.com/");
 		//searcing for vmw on yahoo's search bar.
 		WebElement element2 = driver.findElement(By.id("mnp-search_box"));
 		element2.sendKeys("VMW");
 		element2.submit();		
-		WebElement element3 = (new WebDriverWait(driver, 10))
+		WebElement element3 = (new WebDriverWait(driver, 20))
 				  .until(ExpectedConditions.presenceOfElementLocated(By.id("yfs_l84_vmw")));
 		
 		//compute yahoo price for VMW
