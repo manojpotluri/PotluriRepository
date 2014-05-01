@@ -1,0 +1,7 @@
+ReadMe.. 
+##################################
+TestWebDriver is the class that uses Selenium WebDriver libraries to connect to Finance.google.com and Finance.yahoo.com and get the 
+current stock prices of VMW.
+when you run this class, it runs once every 5 minutes and displays the current stock price for VMW from
+google and yahoo and also prints which price is greater.
+##################################
