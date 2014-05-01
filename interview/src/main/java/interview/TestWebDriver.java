@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestWebDriver {
 	//delay for 5 minutes
@@ -47,8 +49,10 @@ public class TestWebDriver {
 		//searcing for vmw on yahoo's search bar.
 		WebElement element2 = driver.findElement(By.id("mnp-search_box"));
 		element2.sendKeys("VMW");
-		element2.submit();
-		WebElement element3 = driver.findElement(By.id("yfs_l84_vmw"));
+		element2.submit();		
+		WebElement element3 = (new WebDriverWait(driver, 10))
+				  .until(ExpectedConditions.presenceOfElementLocated(By.id("yfs_l84_vmw")));
+		
 		//compute yahoo price for VMW
 		double yahooPrice = Double.parseDouble(element3.getText());
 		System.out.println("Yahoo Price is " +yahooPrice);
